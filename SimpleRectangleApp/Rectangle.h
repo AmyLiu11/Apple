@@ -20,6 +20,6 @@
 @property(nonatomic,strong)UIColor * recColor;
 @property(nonatomic,weak)id<rectangleIntersectionProtocol> delegate;
 
-- (id)initWithPosition:(CGPoint)position andColor:(UIColor*)color;
+- (id)initWithFrame:(CGRect)frame andColor:(UIColor*)color;
 
 @end

@@ -28,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2888CAC31A9E6A0B000C0517 /* RectangleDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RectangleDefines.h; sourceTree = "<group>"; };
 		36DF9BF61A9D6E9B005C9693 /* SimpleRectangleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRectangleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DF9BFA1A9D6E9B005C9693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36DF9BFB1A9D6E9B005C9693 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 				36DF9C011A9D6E9B005C9693 /* ViewController.m */,
 				36DF9C1F1A9D6F11005C9693 /* Rectangle.h */,
 				36DF9C201A9D6F11005C9693 /* Rectangle.m */,
+				2888CAC31A9E6A0B000C0517 /* RectangleDefines.h */,
 				36DF9C031A9D6E9B005C9693 /* Main.storyboard */,
 				36DF9C061A9D6E9B005C9693 /* Images.xcassets */,
 				36DF9C081A9D6E9B005C9693 /* LaunchScreen.xib */,
@@ -352,7 +354,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimpleRectangleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -363,7 +365,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimpleRectangleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

@@ -7,10 +7,7 @@
 //
 
 #import "Rectangle.h"
-
-
-static const CGFloat RecDefaultWidth = 200;
-static const CGFloat RecDefaultHeight = 100;
+#import "RectangleDefines.h"
 
 @interface Rectangle()
 @property (assign, nonatomic)CGFloat trans_x;
@@ -22,18 +19,12 @@ static const CGFloat RecDefaultHeight = 100;
 
 @implementation Rectangle
 
-//- (id)initWithFrame:(CGRect)frameRect
-//{
-//    self = [super initWithFrame:frameRect];
-//    return self;
-//}
 
-- (id)initWithPosition:(CGPoint)position andColor:(UIColor*)color{
-    CGRect frame = CGRectMake(0, 0, RecDefaultWidth, RecDefaultHeight);
+- (id)initWithFrame:(CGRect)frame andColor:(UIColor*)color{
     
     self = [super initWithFrame:frame];
     if (self) {
-        self.frame = CGRectMake(position.x, position.y, frame.size.width, frame.size.height);
+        self.frame = frame;
         
         self.userInteractionEnabled = YES;
         
@@ -79,7 +70,7 @@ static const CGFloat RecDefaultHeight = 100;
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self.delegate cancelInteractionDisplay:self];
+      [self.delegate cancelInteractionDisplay:self];
 }
 
 - (CGFloat)getScaleFactor:(CGAffineTransform)transform{
@@ -98,7 +89,7 @@ static const CGFloat RecDefaultHeight = 100;
     }else{
         // do nothing
     }
-    
+
     [self updateScaleAndTranslation:CGPointZero];
 }
 
