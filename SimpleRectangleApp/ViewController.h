@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Rectangle.h"
 
-@interface ViewController : UIViewController<rectangleProtocol>
+@interface ViewController : UIViewController<rectangleIntersectionProtocol>
 
 @end
 

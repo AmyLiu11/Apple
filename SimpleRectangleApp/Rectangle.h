@@ -9,17 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @class Rectangle;
-@protocol rectangleProtocol <NSObject>
+@protocol rectangleIntersectionProtocol <NSObject>
 
-- (Rectangle*)needLowerView:(Rectangle*)rec;
+- (void)testIntersectionRect:(Rectangle*)rec;
+- (void)cancelInteractionDisplay:(Rectangle*)rec;
 
 @end
 
 @interface Rectangle : UIView<UIGestureRecognizerDelegate>
 @property(nonatomic,strong)UIColor * recColor;
-@property(nonatomic,weak)id<rectangleProtocol> delegate;
+@property(nonatomic,weak)id<rectangleIntersectionProtocol> delegate;
 
 - (id)initWithPosition:(CGPoint)position andColor:(UIColor*)color;
--(void)testIntersectionRect:(Rectangle*)rect;
 
 @end
