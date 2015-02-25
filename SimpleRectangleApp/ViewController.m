@@ -92,6 +92,10 @@
      [self.topRect setNeedsDisplay];
 }
 
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+    
+}
+
 
 
 @end
