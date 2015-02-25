@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "RectangleDefines.h"
 
+
 @interface ViewController ()
 @property (strong, nonatomic)Rectangle * recOne;
 @property (strong, nonatomic)Rectangle * recTwo;
@@ -22,10 +23,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.genBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-//    [self.genBtn addTarget:self action:@selector(generateRectangle) forControlEvents:UIControlEventTouchUpInside];
+    self.view.backgroundColor = [UIColor blackColor];
     CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
     
+    self.resetBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.resetBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [self.resetBtn setBackgroundImage:[UIImage imageNamed:@"flee_button_send.png"] forState:UIControlStateNormal];
+    self.resetBtn.frame = CGRectMake(self.view.frame.origin.x + (width -  ResetBtnDefaultWidth)/2, self.view.frame.origin.y + height - ResetBtnDefaultHeight - 10, ResetBtnDefaultWidth, ResetBtnDefaultHeight);
+    [self.resetBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.resetBtn setTitle:@"Reset" forState:UIControlStateNormal];
+    [self.resetBtn addTarget:self action:@selector(resetRectangles) forControlEvents:UIControlEventTouchUpInside];
+    
+
     self.recOne = [[Rectangle alloc] initWithFrame:CGRectMake(self.view.frame.origin.x + (width -  RecDefaultWidth)/2, self.view.frame.origin.y + RectangleVerticalPadding , RecDefaultWidth, RecDefaultHeight) andColor:RGBACOLOR(153, 255, 204, 1.0)];
     
     self.recOne.tag = 1;
@@ -36,9 +46,37 @@
     self.recTwo.tag = 2;
     [self.view addSubview:self.recTwo];
     [self.view addSubview:self.recOne];
+    [self.view addSubview:self.resetBtn];
     
     // Do any additional setup after loading the view, typically from a nib.
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    MYIntroductionPanel *panel = [[MYIntroductionPanel alloc] initWithimage:[UIImage imageNamed:@"rsz_rectangle.jpg"] title:@"Simple Rectangle App" description:@"Welcome to Simple Rectangle App! In this app, you will play with two rectangles to change their positions and sizes by gestures. Let me teach you some basic gestures! "];
+    
+    MYIntroductionPanel *panel1 = [[MYIntroductionPanel alloc] initWithimage:[UIImage imageNamed:@"RCHGesturePan.png"] title:@"Pan Gesture" description:@"First, if you want to drag the rectangles, you can simply use pan gestures!"];
+    
+    MYIntroductionPanel *panel2 = [[MYIntroductionPanel alloc] initWithimage:[UIImage imageNamed:@"RCHGesturePinch.png"] title:@"Pinch Gesture" description:@"Also, you can use pinch gesture to resize the rectangles. Have fun playing around with it!"];
+    
+    MYIntroductionView *introductionView = [[MYIntroductionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) headerText:@"App User Guide" panels:@[panel,panel1, panel2] languageDirection:MYLanguageDirectionLeftToRight];
+    [introductionView setBackgroundImage:[UIImage imageNamed:@"SampleBackground"]];
+    
+    introductionView.delegate = self;
+    
+    [introductionView showInView:self.view];
+}
+
+
+- (void)resetRectangles{
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+
+    self.recOne.frame = CGRectMake(self.view.frame.origin.x + (width -  RecDefaultWidth)/2, self.view.frame.origin.y + RectangleVerticalPadding , RecDefaultWidth, RecDefaultHeight);
+    self.recTwo.frame = CGRectMake(self.recOne.frame.origin.x, self.recOne.frame.origin.y + RectangleVerticalGap , RecDefaultWidth, RecDefaultHeight);
+    [self removeAndHideHighlight];
+    [self.view setNeedsLayout];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -74,22 +112,23 @@
             self.recIntection.frame = transRect;
             [self.recIntection setNeedsDisplay];
         }else{
-            if ([self.recIntection isDescendantOfView:self.topRect]) {
-                [self.recIntection removeFromSuperview];
-            }
-            self.recIntection.hidden = YES;
+            [self removeAndHideHighlight];
         }
        [self.topRect setNeedsDisplay];
 }
 
 - (void)cancelInteractionDisplay:(Rectangle*)rec{
      if (!CGRectIntersectsRect(self.recOne.frame, self.recTwo.frame)) {
-         if ([self.recIntection isDescendantOfView:self.topRect]) {
-             [self.recIntection removeFromSuperview];
-         }
-         self.recIntection.hidden = YES;
+         [self removeAndHideHighlight];
      }
      [self.topRect setNeedsDisplay];
+}
+
+- (void)removeAndHideHighlight{
+    if ([self.recIntection isDescendantOfView:self.topRect]) {
+        [self.recIntection removeFromSuperview];
+    }
+    self.recIntection.hidden = YES;
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{

@@ -15,5 +15,7 @@ alpha:(a)]
 #define RectangleVerticalGap 150.0f
 #define RecDefaultWidth 200.0f
 #define RecDefaultHeight 100.0f
+#define ResetBtnDefaultWidth 50.0f
+#define ResetBtnDefaultHeight 30.0f
 
 #endif

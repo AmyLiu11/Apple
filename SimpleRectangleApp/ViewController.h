@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Rectangle.h"
+#import "MYIntroductionPanel.h"
+#import "MYIntroductionView.h"
 
-@interface ViewController : UIViewController<rectangleIntersectionProtocol>
+@interface ViewController : UIViewController<rectangleIntersectionProtocol,MYIntroductionDelegate>
 
 @end
 
