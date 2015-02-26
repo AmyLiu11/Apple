@@ -36,6 +36,10 @@
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]
                                        initWithTarget:self action:@selector(handlePan:)];
         
+//        UIPanGestureRecognizer *swipe = [[UIPanGestureRecognizer alloc]
+//                                       initWithTarget:self action:@selector(handleSwipe:)];
+
+        
         self.gestureRecognizers = @[pinch, pan];
         
         for (UIGestureRecognizer *recognizer in self.gestureRecognizers){
@@ -93,6 +97,18 @@
     [self updateScaleAndTranslation:CGPointZero];
 }
 
+- (void)handlePan:(UIPanGestureRecognizer*)panGes{
+    CGPoint trans = [panGes translationInView:self.superview];
+    if (panGes.state == UIGestureRecognizerStateChanged) {
+        [self.delegate testIntersectionRect:self];
+    }else if(panGes.state == UIGestureRecognizerStateCancelled || panGes.state == UIGestureRecognizerStateEnded){
+        [self.delegate cancelInteractionDisplay:self];
+    }else{
+        //do nothing
+    }
+    [self updateScaleAndTranslation:trans];
+}
+
 - (void)updateScaleAndTranslation:(CGPoint)trans{
     self.transform = CGAffineTransformMakeTranslation(trans.x + self.trans_x, trans.y + self.trans_y);
     
@@ -105,18 +121,6 @@
     }else{
         self.transform = CGAffineTransformScale(self.transform, self.scaleFactor, self.scaleFactor);
     }
-}
-
-- (void)handlePan:(UIPanGestureRecognizer*)panGes{
-    CGPoint trans = [panGes translationInView:self.superview];
-    if (panGes.state == UIGestureRecognizerStateChanged) {
-        [self.delegate testIntersectionRect:self];
-    }else if(panGes.state == UIGestureRecognizerStateCancelled || panGes.state == UIGestureRecognizerStateEnded){
-        [self.delegate cancelInteractionDisplay:self];
-    }else{
-        //do nothing
-    }
-    [self updateScaleAndTranslation:trans];
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer

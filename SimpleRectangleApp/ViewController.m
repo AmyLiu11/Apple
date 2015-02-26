@@ -121,6 +121,12 @@
      if (!CGRectIntersectsRect(self.recOne.frame, self.recTwo.frame)) {
          [self removeAndHideHighlight];
      }
+     CGRect interect = CGRectIntersection(self.recTwo.frame, self.recOne.frame);
+     CGRect transRect =  [self.view convertRect:interect toView:self.topRect];
+    if (!CGRectEqualToRect(transRect, self.recIntection.frame)) {
+        self.recIntection.frame = transRect;
+        [self.recIntection setNeedsDisplay];
+    }
      [self.topRect setNeedsDisplay];
 }
 
@@ -132,7 +138,7 @@
 }
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
-    
+     
 }
 
 
