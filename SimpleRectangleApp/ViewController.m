@@ -108,13 +108,14 @@
             if (self.recIntection.hidden == YES) {
                 self.recIntection.hidden = NO;
             }
-            [self.topRect addSubview:self.recIntection];
+        
+            if (![self.recIntection isDescendantOfView:self.topRect]) {
+                [self.topRect addSubview:self.recIntection];
+            }
             self.recIntection.frame = transRect;
-            [self.recIntection setNeedsDisplay];
         }else{
             [self removeAndHideHighlight];
         }
-       [self.topRect setNeedsDisplay];
 }
 
 - (void)cancelInteractionDisplay:(Rectangle*)rec{
