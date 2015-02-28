@@ -55,6 +55,11 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:AppIntroPageDisplay]) {
+        return;
+    }
+    
     MYIntroductionPanel *panel = [[MYIntroductionPanel alloc] initWithimage:[UIImage imageNamed:@"rsz_rectangle.jpg"] title:@"Simple Rectangle App" description:@"Welcome to Simple Rectangle App! In this app, you will play with two rectangles to change their positions and sizes by gestures. Let me teach you some basic gestures! "];
     
     MYIntroductionPanel *panel1 = [[MYIntroductionPanel alloc] initWithimage:[UIImage imageNamed:@"RCHGesturePan.png"] title:@"Pan Gesture" description:@"First, if you want to drag the rectangles, you can simply use pan gestures!"];
@@ -67,6 +72,8 @@
     introductionView.delegate = self;
     
     [introductionView showInView:self.view];
+    
+    [defaults setObject:@1 forKey:AppIntroPageDisplay]; //display Intro page once
 }
 
 
@@ -101,7 +108,7 @@
         self.intersectionArea = [RectangleIntersection getIntersectionInRect:lowerRect.frame andRect:self.topRect.frame];
             CGRect transRect = [self.view convertRect:self.intersectionArea toView:self.topRect];
             if (!self.recIntection) {
-                self.recIntection = [[Rectangle alloc] initWithFrame:transRect andColor:[UIColor grayColor]];
+                self.recIntection = [[Rectangle alloc] initWithFrame:transRect andColor:RGBACOLOR(224, 224, 224, 1.0)];
                 self.recIntection.userInteractionEnabled  = NO;
             }
             
@@ -137,11 +144,5 @@
     }
     self.recIntection.hidden = YES;
 }
-
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
-     
-}
-
-
 
 @end

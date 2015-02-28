@@ -17,5 +17,6 @@ alpha:(a)]
 #define RecDefaultHeight 100.0f
 #define ResetBtnDefaultWidth 50.0f
 #define ResetBtnDefaultHeight 30.0f
+#define AppIntroPageDisplay @"ShowAppIntroPage"
 
 #endif

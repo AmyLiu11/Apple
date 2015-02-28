@@ -36,10 +36,6 @@
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc]
                                        initWithTarget:self action:@selector(handlePan:)];
         
-//        UIPanGestureRecognizer *swipe = [[UIPanGestureRecognizer alloc]
-//                                       initWithTarget:self action:@selector(handleSwipe:)];
-
-        
         self.gestureRecognizers = @[pinch, pan];
         
         for (UIGestureRecognizer *recognizer in self.gestureRecognizers){
@@ -50,17 +46,18 @@
         self.trans_x = 0.0f;
         self.scaleFactor = 1.0f;
         self.recColor = color;
+        self.backgroundColor = self.recColor;
     }
     return self;
 }
 
-- (void)drawRect:(CGRect)rect
-{
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextSetFillColorWithColor(context, self.recColor.CGColor);
-    CGContextFillRect (context, CGRectMake (0, 0, rect.size.width, rect.size.height));
-}
+//- (void)drawRect:(CGRect)rect
+//{
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    
+//    CGContextSetFillColorWithColor(context, self.recColor.CGColor);
+//    CGContextFillRect (context, CGRectMake (0, 0, rect.size.width, rect.size.height));
+//}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.superview bringSubviewToFront:self];
