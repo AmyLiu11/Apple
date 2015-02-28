@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Xiaofen Liu. All rights reserved.
 //
 
+//gather some constant values and common function used in the app
 #ifndef SimpleRectangleApp_RectangleDefines_h
 #define SimpleRectangleApp_RectangleDefines_h
 

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Xiaofen Liu. All rights reserved.
 //
 
+// a UIView subclass, represent two rectangles and interaction area, with two gestures added in the view to control the position and the size of the view
 #import <UIKit/UIKit.h>
 
 @class Rectangle;
