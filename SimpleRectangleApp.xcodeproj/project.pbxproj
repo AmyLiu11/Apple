@@ -127,10 +127,10 @@
 				36DF9C001A9D6E9B005C9693 /* ViewController.h */,
 				36DF9C011A9D6E9B005C9693 /* ViewController.m */,
 				2896464B1AA16A3800099D17 /* Views */,
-				36DF9C031A9D6E9B005C9693 /* Main.storyboard */,
 				36DF9C391A9E7685005C9693 /* introView */,
 				36DF9C061A9D6E9B005C9693 /* Images.xcassets */,
 				36DF9C081A9D6E9B005C9693 /* LaunchScreen.xib */,
+				36DF9C031A9D6E9B005C9693 /* Main.storyboard */,
 				36DF9BF91A9D6E9B005C9693 /* Supporting Files */,
 			);
 			path = SimpleRectangleApp;
