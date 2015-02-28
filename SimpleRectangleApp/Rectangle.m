@@ -85,7 +85,7 @@
 
 - (void)handlePinch:(UIPinchGestureRecognizer*)pinchGes{
     self.scaleFactor = pinchGes.scale;
-    NSLog(@"%f",self.scaleFactor);
+//    NSLog(@"%f",self.scaleFactor);
     if (pinchGes.state == UIGestureRecognizerStateChanged) {
         [self.delegate testIntersectionRect:self];
     }else if(pinchGes.state == UIGestureRecognizerStateCancelled || pinchGes.state == UIGestureRecognizerStateEnded){
