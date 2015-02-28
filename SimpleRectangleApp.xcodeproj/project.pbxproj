@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2896464A1AA163C100099D17 /* RectangleIntersection.m in Sources */ = {isa = PBXBuildFile; fileRef = 289646491AA163C100099D17 /* RectangleIntersection.m */; };
 		36DF9BFC1A9D6E9B005C9693 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 36DF9BFB1A9D6E9B005C9693 /* main.m */; };
 		36DF9BFF1A9D6E9B005C9693 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 36DF9BFE1A9D6E9B005C9693 /* AppDelegate.m */; };
 		36DF9C021A9D6E9B005C9693 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36DF9C011A9D6E9B005C9693 /* ViewController.m */; };
@@ -39,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		2888CAC31A9E6A0B000C0517 /* RectangleDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RectangleDefines.h; sourceTree = "<group>"; };
+		289646481AA163C100099D17 /* RectangleIntersection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleIntersection.h; sourceTree = "<group>"; };
+		289646491AA163C100099D17 /* RectangleIntersection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectangleIntersection.m; sourceTree = "<group>"; };
 		36DF9BF61A9D6E9B005C9693 /* SimpleRectangleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleRectangleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DF9BFA1A9D6E9B005C9693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36DF9BFB1A9D6E9B005C9693 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -86,6 +89,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2896464B1AA16A3800099D17 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				289646481AA163C100099D17 /* RectangleIntersection.h */,
+				289646491AA163C100099D17 /* RectangleIntersection.m */,
+				2888CAC31A9E6A0B000C0517 /* RectangleDefines.h */,
+				36DF9C1F1A9D6F11005C9693 /* Rectangle.h */,
+				36DF9C201A9D6F11005C9693 /* Rectangle.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		36DF9BED1A9D6E9B005C9693 = {
 			isa = PBXGroup;
 			children = (
@@ -111,9 +126,7 @@
 				36DF9BFE1A9D6E9B005C9693 /* AppDelegate.m */,
 				36DF9C001A9D6E9B005C9693 /* ViewController.h */,
 				36DF9C011A9D6E9B005C9693 /* ViewController.m */,
-				36DF9C1F1A9D6F11005C9693 /* Rectangle.h */,
-				36DF9C201A9D6F11005C9693 /* Rectangle.m */,
-				2888CAC31A9E6A0B000C0517 /* RectangleDefines.h */,
+				2896464B1AA16A3800099D17 /* Views */,
 				36DF9C031A9D6E9B005C9693 /* Main.storyboard */,
 				36DF9C391A9E7685005C9693 /* introView */,
 				36DF9C061A9D6E9B005C9693 /* Images.xcassets */,
@@ -284,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2896464A1AA163C100099D17 /* RectangleIntersection.m in Sources */,
 				36DF9C021A9D6E9B005C9693 /* ViewController.m in Sources */,
 				36DF9BFF1A9D6E9B005C9693 /* AppDelegate.m in Sources */,
 				36DF9C381A9E767F005C9693 /* MYIntroductionView.m in Sources */,
