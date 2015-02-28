@@ -145,4 +145,28 @@
     self.recIntection.hidden = YES;
 }
 
+- (void)willAnimateRotationToInterfaceOrientation:
+(UIInterfaceOrientation)toInterfaceOrientation
+                                         duration:(NSTimeInterval)duration
+{
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+        toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
+    {
+        self.recOne.frame = CGRectMake(self.view.frame.origin.x + RectangleHorizontalPadding, self.view.frame.origin.y + RectangleVerticalPadding - 50 , RecDefaultWidth, RecDefaultHeight);
+        
+        self.recTwo.frame = CGRectMake(self.recOne.frame.origin.x + RecDefaultWidth + 50 , self.recOne.frame.origin.y, RecDefaultWidth, RecDefaultHeight);
+        
+        self.resetBtn.frame = CGRectMake(self.view.frame.origin.x + (width -  ResetBtnDefaultWidth)/2, self.view.frame.origin.y + height - ResetBtnDefaultHeight - 10, ResetBtnDefaultWidth, ResetBtnDefaultHeight);
+    }
+    else
+    {
+        self.recOne.frame = CGRectMake(self.view.frame.origin.x + (width -  RecDefaultWidth)/2, self.view.frame.origin.y + RectangleVerticalPadding , RecDefaultWidth, RecDefaultHeight);
+        self.recTwo.frame = CGRectMake(self.recOne.frame.origin.x, self.recOne.frame.origin.y + RectangleVerticalGap , RecDefaultWidth, RecDefaultHeight);
+        self.resetBtn.frame = CGRectMake(self.view.frame.origin.x + (width -  ResetBtnDefaultWidth)/2, self.view.frame.origin.y + height - ResetBtnDefaultHeight - 10, ResetBtnDefaultWidth, ResetBtnDefaultHeight);
+    }
+}
+
 @end
