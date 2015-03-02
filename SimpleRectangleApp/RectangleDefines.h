@@ -15,8 +15,8 @@ alpha:(a)]
 #define RectangleVerticalPadding 100.0f
 #define RectangleHorizontalPadding 50.0f
 #define RectangleVerticalGap 150.0f
-#define RecDefaultWidth 200.0f
-#define RecDefaultHeight 100.0f
+#define RecDefaultWidth 240.0f
+#define RecDefaultHeight 120.0f
 #define ResetBtnDefaultWidth 50.0f
 #define ResetBtnDefaultHeight 30.0f
 #define AppIntroPageDisplay @"ShowAppIntroPage"
